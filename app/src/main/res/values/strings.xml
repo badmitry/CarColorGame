@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">carcolorgame</string>
+    <string name="start_color_game">начать игру</string>
+    <string name="chose_voice">Выбрать голос</string>
+    <string name="rougher">Мужской голос 1</string>
+    <string name="softer">Мужской голос 2</string>
+    <string name="settings">Настройки</string>
+</resources>

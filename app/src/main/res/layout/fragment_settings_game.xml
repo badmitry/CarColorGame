@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="InvalidId"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/chose_voice"
+            android:textSize="@dimen/text_title_size"/>
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/rb_rougher_voices"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rougher" />
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/rb_softer_voices"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/softer" />
+
+        </RadioGroup>
+
+    </LinearLayout>
+
+</layout>
