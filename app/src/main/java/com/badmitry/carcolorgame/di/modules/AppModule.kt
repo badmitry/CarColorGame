@@ -1,8 +1,8 @@
 package com.badmitry.futurespositions.di.modules
 
-import com.badmitry.carcolorgame.mvp.model.ISettings
+import com.badmitry.carcolorgame.mvp.model.ISaverSettings
 import com.badmitry.carcolorgame.ui.App
-import com.badmitry.carcolorgame.ui.SettingsRepo
+import com.badmitry.carcolorgame.ui.SaverSettingsRepo
 import dagger.Module
 import dagger.Provides
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -17,5 +17,5 @@ class AppModule(private val app: App) {
     fun getUiSchelduler() = AndroidSchedulers.mainThread()
 
     @Provides
-    fun getSettingsSaver(): ISettings = SettingsRepo(app)
+    fun getSettingsSaver(): ISaverSettings = SaverSettingsRepo(app)
 }

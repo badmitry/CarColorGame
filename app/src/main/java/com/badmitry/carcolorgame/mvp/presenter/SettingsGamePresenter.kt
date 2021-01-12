@@ -1,6 +1,6 @@
 package com.badmitry.carcolorgame.mvp.presenter
 
-import com.badmitry.carcolorgame.mvp.model.ISettings
+import com.badmitry.carcolorgame.mvp.model.ISaverSettings
 import com.badmitry.carcolorgame.mvp.view.ISettingsGameView
 import com.badmitry.carcolorgame.navigation.Screens
 import io.reactivex.rxjava3.core.Scheduler
@@ -13,7 +13,7 @@ class SettingsGamePresenter : MvpPresenter<ISettingsGameView>() {
     lateinit var router: Router
 
     @Inject
-    lateinit var settingsRepo: ISettings
+    lateinit var saverSettingsRepo: ISaverSettings
 
     @Inject
     lateinit var uiSchedulers: Scheduler
@@ -24,13 +24,13 @@ class SettingsGamePresenter : MvpPresenter<ISettingsGameView>() {
     }
 
     fun takeChooseVoice() {
-        settingsRepo.takeChooseVoice().observeOn(uiSchedulers).subscribe{it ->
+        saverSettingsRepo.takeChooseVoice().observeOn(uiSchedulers).subscribe{ it ->
             viewState.setChoseVoice(it)
         }
     }
 
     fun saveChoseVoice(code: Int) {
-        settingsRepo.saveChooseVoice(code)
+        saverSettingsRepo.saveChooseVoice(code)
     }
 
     fun backPressed(): Boolean {

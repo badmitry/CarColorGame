@@ -2,19 +2,19 @@ package com.badmitry.carcolorgame.ui
 
 import android.content.Context
 import android.content.SharedPreferences
-import com.badmitry.carcolorgame.mvp.model.ISettings
+import com.badmitry.carcolorgame.mvp.model.ISaverSettings
 import io.reactivex.rxjava3.core.Single
 import io.reactivex.rxjava3.schedulers.Schedulers
 
 
-class SettingsRepo(context: Context): ISettings {
+class SaverSettingsRepo(context: Context): ISaverSettings {
     private var sharedPrefs: SharedPreferences? = null
 
     val PREFS = "prefs"
     val KEY_VOICE = "nameKey"
 
     init {
-        sharedPrefs = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE);
+        sharedPrefs = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
     }
 
     override fun takeChooseVoice(): Single<Int> = Single.create<Int> { emitter ->
