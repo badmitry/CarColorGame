@@ -51,11 +51,9 @@ class ColorGameFragment: MvpAppCompatFragment(), IColorGameView, BackBtnListener
 
     override fun startGame() {
         gameView = activity?.applicationContext?.let { GameView(it, presenter) }
-        gameView?.setZOrderOnTop(true);
-        gameView?.getHolder()?.setFormat(PixelFormat.TRANSPARENT);
-        binding?.let {
-            it.gameLayout.addView(gameView)
-        }
+        gameView?.setZOrderOnTop(true)
+        gameView?.getHolder()?.setFormat(PixelFormat.TRANSPARENT)
+        binding?.gameLayout?.addView(gameView)
     }
 
     override fun sound(int: Int) {
@@ -63,7 +61,8 @@ class ColorGameFragment: MvpAppCompatFragment(), IColorGameView, BackBtnListener
             activity?.applicationContext?.let {
                 stopSound = true
                 var soundId = 0
-                if (presenter.codeVoice == 0) {
+                when (presenter.codeVoice) {
+                    0 ->
                     when (int) {
                         0 -> soundId = R.raw.pblack
                         1 -> soundId = R.raw.pblue
@@ -81,26 +80,43 @@ class ColorGameFragment: MvpAppCompatFragment(), IColorGameView, BackBtnListener
                             soundId = R.raw.pblack
                         }
                     }
-                } else {
-                    when (int) {
-                        0 -> soundId = R.raw.sblack
-                        1 -> soundId = R.raw.sblue
-                        2 -> soundId = R.raw.sbrown
-                        3 -> soundId = R.raw.sgreen
-                        4 -> soundId = R.raw.sgrey
-                        5 -> soundId = R.raw.slblue
-                        6 -> soundId = R.raw.sorange
-                        7 -> soundId = R.raw.spink
-                        8 -> soundId = R.raw.spurple
-                        9 -> soundId = R.raw.sred
-                        10 -> soundId = R.raw.swhite
-                        11 -> soundId = R.raw.syellow
-                        else -> {
-                            soundId = R.raw.sblack
+                    1 ->
+                        when (int) {
+                            0 -> soundId = R.raw.sblack
+                            1 -> soundId = R.raw.sblue
+                            2 -> soundId = R.raw.sbrown
+                            3 -> soundId = R.raw.sgreen
+                            4 -> soundId = R.raw.sgrey
+                            5 -> soundId = R.raw.slblue
+                            6 -> soundId = R.raw.sorange
+                            7 -> soundId = R.raw.spink
+                            8 -> soundId = R.raw.spurple
+                            9 -> soundId = R.raw.sred
+                            10 -> soundId = R.raw.swhite
+                            11 -> soundId = R.raw.syellow
+                            else -> {
+                                soundId = R.raw.sblack
+                            }
                         }
-                    }
+                    2 ->
+                        when (int) {
+                            0 -> soundId = R.raw.ablack
+                            1 -> soundId = R.raw.ablue
+                            2 -> soundId = R.raw.abrown
+                            3 -> soundId = R.raw.agreen
+                            4 -> soundId = R.raw.agrey
+                            5 -> soundId = R.raw.alblue
+                            6 -> soundId = R.raw.aorange
+                            7 -> soundId = R.raw.apink
+                            8 -> soundId = R.raw.apurple
+                            9 -> soundId = R.raw.ared
+                            10 -> soundId = R.raw.awhite
+                            11 -> soundId = R.raw.ayellow
+                            else -> {
+                                soundId = R.raw.sblack
+                            }
+                        }
                 }
-
                 mp = MediaPlayer.create(it, soundId)
                 mp?.setOnCompletionListener {
                     stopSound = false

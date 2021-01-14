@@ -30,6 +30,12 @@
                 android:layout_height="wrap_content"
                 android:text="@string/softer" />
 
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/rb_woman_voices"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/woman" />
+
         </RadioGroup>
 
     </LinearLayout>

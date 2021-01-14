@@ -45,6 +45,9 @@ class SettingsGameFragment : MvpAppCompatFragment(), ISettingsGameView, BackBtnL
             it.rbSofterVoices.setOnClickListener{
                 presenter.saveChoseVoice(1)
             }
+            it.rbWomanVoices.setOnClickListener{
+                presenter.saveChoseVoice(2)
+            }
         }
     }
 
@@ -53,6 +56,7 @@ class SettingsGameFragment : MvpAppCompatFragment(), ISettingsGameView, BackBtnL
             when (code) {
                 0 -> it.rbRougherVoices.isChecked = true
                 1 -> it.rbSofterVoices.isChecked = true
+                2 -> it.rbWomanVoices.isChecked = true
             }
         }
     }

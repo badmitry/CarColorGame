@@ -5,4 +5,5 @@
     <string name="rougher">Мужской голос 1</string>
     <string name="softer">Мужской голос 2</string>
     <string name="settings">Настройки</string>
+    <string name="woman">Женский голос</string>
 </resources>
