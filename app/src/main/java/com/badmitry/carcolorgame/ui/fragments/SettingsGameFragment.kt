@@ -48,6 +48,9 @@ class SettingsGameFragment : MvpAppCompatFragment(), ISettingsGameView, BackBtnL
             it.rbWomanVoices.setOnClickListener{
                 presenter.saveChoseVoice(2)
             }
+            it.btnOk.setOnClickListener{
+                presenter.backPressed()
+            }
         }
     }
 
