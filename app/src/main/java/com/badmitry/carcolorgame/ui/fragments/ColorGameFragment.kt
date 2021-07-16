@@ -2,6 +2,7 @@ package com.badmitry.carcolorgame.ui.fragments
 
 import android.graphics.PixelFormat
 import android.media.MediaPlayer
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -47,6 +48,16 @@ class ColorGameFragment: MvpAppCompatFragment(), IColorGameView, BackBtnListener
         binding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_color_game, container, false)
         return binding?.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val mDecorView = requireActivity().window.decorView
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            requireActivity().window.setDecorFitsSystemWindows(false)
+        } else {
+            requireActivity().window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
+        }
     }
 
     override fun startGame() {

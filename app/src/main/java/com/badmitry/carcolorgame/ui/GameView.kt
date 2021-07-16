@@ -28,6 +28,7 @@ class GameView(context: Context, private val presenter: ColorGamePresenter) : Su
     private var surfaceHolder = holder
     private val transports: ArrayList<Transport> = ArrayList()
     private val CARS_INTERVAL = 50
+    private val CAR_COUNTER = 5
     private var currentTime = 0
     private var colorCounter = 0
     private var transportsColorCode = 0
@@ -161,7 +162,7 @@ class GameView(context: Context, private val presenter: ColorGamePresenter) : Su
 
     private fun checkIfNewAsteroid() {
         if (currentTime >= CARS_INTERVAL) {
-            if (colorCounter == 10) {
+            if (colorCounter == CAR_COUNTER) {
                 colorCounter = 0
                 transportsColorCode++
             }
